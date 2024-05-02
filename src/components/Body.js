@@ -37,9 +37,9 @@ const Body = () => {
       try {
         const userLocation = await getUserLocation();
         setRestaurantUrl(
-          // `https://gofoodsserver.onrender.com/api/restaurants/?lat=${userLocation.lat}&lng=${userLocation.lng}`
+          `https://gofoodsserver.onrender.com/api/restaurants/?lat=${userLocation.lat}&lng=${userLocation.lng}`
           // `https://gofoodsserver.onrender.com/api/restaurants/?lat=22.718684&lng=88.3530653`
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&page_type=DESKTOP_WEB_LISTING"
+          // "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.572646&lng=88.36389500000001&page_type=DESKTOP_WEB_LISTING"
         );
 
         const response = await fetch(restaurantUrl);
@@ -55,11 +55,9 @@ const Body = () => {
           throw new Error(json?.error?.message);
         }
         const resData = await checkJsonData(json);
-        const addr = json?.data?.cards[2]?.card?.card?.header?.title;
-        setAddress(addr.replace("chains", ""));
-        setCategoryMenu(
-          json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.info
-        );
+        const addr = json?.data.cards[1].card.card.header.title;
+        setAddress(addr?.replace("chains", ""));
+        setCategoryMenu(json?.data?.cards[0]?.card?.card?.imageGridCards?.info);
         setAllRestaurants(resData);
         setFilteredRestaurants(resData);
       } catch (error) {

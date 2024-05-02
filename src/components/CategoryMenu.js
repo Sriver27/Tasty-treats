@@ -7,7 +7,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const CategoryMenu = ({ categoryMenu }) => {
   let CDN_URL =
-    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/";
+    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
   // Ref for controlling the slider
   const sliderRef = useRef(null);
@@ -61,7 +61,7 @@ const CategoryMenu = ({ categoryMenu }) => {
               key={item.id}
             >
               <div className="category_menu_item">
-                <img src={CDN_URL + item.imageId} alt={item.name} />
+                <img src={CDN_URL + item?.imageId} alt={item?.action?.text} />
               </div>
             </Link>
           ))}

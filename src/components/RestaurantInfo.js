@@ -11,15 +11,15 @@ const RestaurantInfo = ({ restaurant }) => {
         <p>
           {restaurant?.areaName}, {restaurant?.city}
         </p>
-        {restaurant?.veg && (
+        {/* {restaurant?.veg && (
           <p className="mtop10">
             <FaLeaf color="green" /> Pure Veg
           </p>
-        )}
+        )} */}
       </div>
       <div className="restaurant-basics">
         <h4>
-          <i className="fa fa-star"></i> {restaurant?.avgRating}{" "}
+          <i className="fa fa-star"></i> {restaurant?.avgRatingString}{" "}
         </h4>
         <p>{restaurant?.totalRatingsString}</p>
       </div>
