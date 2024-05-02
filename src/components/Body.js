@@ -113,7 +113,11 @@ const Body = () => {
         />
       </div>
       {filteredRestaurants.length === 0 ? (
-        <NotFound />
+        <NotFound
+          setSearchText={setSearchText}
+          setFilteredRestaurants={setFilteredRestaurants}
+          allRestaurants={allRestaurants}
+        />
       ) : (
         <>
           {" "}

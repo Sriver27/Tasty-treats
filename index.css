@@ -610,12 +610,14 @@
   border-radius: 10px;
   border: none;
   outline: none;
+  color: white;
+  cursor: pointer;
 }
 
-.error-button a {
+/* .error-button a {
   text-decoration: none;
   color: white;
-}
+} */
 
 .control-button {
   background-color: transparent;

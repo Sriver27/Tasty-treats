@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import "../../index.css";
 
-const NotFound = () => {
+const NotFound = (props) => {
+  const { setSearchText, setFilteredRestaurants, allRestaurants } = props;
+
+  const handleClick = () => {
+    setSearchText("");
+    setFilteredRestaurants(allRestaurants);
+  };
   return (
     <div className="not-found">
       <img
@@ -11,8 +17,8 @@ const NotFound = () => {
       />
 
       <p className="error-text">Oops! Nothing Found here</p>
-      <button className="error-button">
-        <Link to="/">Back to Home</Link>
+      <button className="error-button" onClick={handleClick}>
+        Back to Home
       </button>
     </div>
   );
